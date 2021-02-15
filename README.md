@@ -1,0 +1,2 @@
+# bitwarden_prom_exporter
+Bitwarden_rs Postgresql Prometheus Exporter
