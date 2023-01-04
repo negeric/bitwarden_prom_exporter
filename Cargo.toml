@@ -1,0 +1,29 @@
+[package]
+name = "bitwarden_prom_exporter"
+version = "0.1.0"
+edition = "2018"
+
+[package.metadata.docs.rs]
+features = ["logging", "internal_metrics"]
+
+[features]
+# Feature logging enables the start and request logging of the server.
+# Disable `prometheus_exporter` metrics by disabling internal_metrics feature
+default = ["logging", "internal_metrics"]
+logging = ["log"]
+internal_metrics = ["lazy_static"]
+
+[dependencies]
+ascii = "1"
+lazy_static = { version = "1", optional = true }
+log = { version = "0.4", optional = true }
+prometheus = { version = "0.12", default-features = false }
+thiserror = "1"
+tiny_http = { version = "0.8", default-features = false }
+reqwest = { version = "0.11", features = ["blocking"] }
+prometheus_exporter = "0.8.2"
+env_logger = "0.8"
+rand = "0.8"
+
+[dev-dependencies]
+log = { version = "0.4" }
